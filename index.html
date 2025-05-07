@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmad Luthfi Taqiyyan - Personal Branding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      overflow: hidden;
+      margin: 0;
+    }
+    .slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: #1e1e2f;
+        background-image: url("latar.png");
+        background-repeat: repeat;
+        background-size: auto;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
+      z-index: 10;
+      transform: translateY(0);
+    }
+    .slide.prev {
+      opacity: 0;
+      z-index: 5;
+      transform: translateY(-100%);
+    }
+    .slide.next {
+      opacity: 0;
+      z-index: 5;
+      transform: translateY(100%);
+    }
+    nav {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 20;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li {
+      margin-right: 2rem;
+    }
+    nav ul li a {
+      color: #ffd700;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    .slide-content {
+      max-width: 80%;
+    }
+    .slide.active .slide-content > * {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .slide.active .slide-content > *:nth-child(1) { animation-delay: 0.2s; }
+    .slide.active .slide-content > *:nth-child(2) { animation-delay: 0.4s; }
+    .slide.active .slide-content > *:nth-child(3) { animation-delay: 0.6s; }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .skill-bar-container {
+      background-color: #4a4a5a;
+      height: 8px;
+      border-radius: 4px;
+      margin: 4px 0 8px 0;
+    }
+    .skill-bar {
+      background-color: #ffd700;
+      height: 8px;
+      border-radius: 4px;
+    }
+    .contact-link {
+      color: #ffd700;
+      transition: color 0.3s ease-in-out;
+      text-decoration: none;
+    }
+    .contact-link:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Home -->
+  <div id="home-slide" class="slide active">
+    <div class="slide-content flex flex-col items-center">
+      <img src="Lutpi.jpg" class="w-32 h-32 object-cover rounded-full border-4 border-[#ffd700] mb-4" />
+      <h1 class="text-5xl md:text-6xl font-serif text-[#ffd700]">Ahmad Luthfi Taqiyyan</h1>
+      <p class="mt-4 text-lg md:text-xl text-gray-300">Making the best use of technology</p>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div id="about-slide" class="slide">
+    <div class="slide-content">
+      <h2 class="text-3xl font-semibold mb-4 text-[#ffd700]">About Me</h2>
+      <p class="text-gray-300">
+        I am Luthfi, a student of Tazkia University from the Sharia Economics Study Program. I have a great interest in Islamic economics, organizations, and self-development. During college, I actively participated in various campus activities. I believe that consistency, the desire to keep learning, and the spirit of the process are the keys to developing and providing benefits.
+      </p>
+    </div>
+  </div>
+
+  <!-- Portofolio -->
+  <div id="portfolio-slide" class="slide">
+    <div class="slide-content">
+      <h2 class="text-3xl font-semibold mb-6 text-[#ffd700]">Portofolio</h2>
+
+      <div class="portfolio-category">
+        <h3 class="text-xl text-[#ffd700] mb-2">Friends</h3>
+        <div class="flex overflow-x-auto gap-2 justify-center">
+          <img src="foto1.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto2.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto3.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto17.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto18.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+        </div>
+      </div>
+
+      <div class="portfolio-category mt-8">
+        <h3 class="text-xl text-[#ffd700] mb-2">Hunting</h3>
+        <div class="flex overflow-x-auto gap-2 justify-center">
+          <img src="foto4.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto5.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto6.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto13.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto14.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+        </div>
+      </div>
+
+      <div class="portfolio-category mt-8">
+        <h3 class="text-xl text-[#ffd700] mb-2">Project</h3>
+        <div class="flex overflow-x-auto gap-2 justify-center">
+          <img src="foto15.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto8.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto9.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto7.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+          <img src="foto16.jpg" class="rounded-md shadow-md" style="max-height: 100px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skill -->
+  <div id="skill-slide" class="slide">
+    <div class="slide-content">
+      <h2 class="text-3xl font-semibold mb-6 text-[#ffd700]">Skill</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-white">
+        <div>
+          <p>Problem Solving</p>
+          <div class="skill-bar-container"><div class="skill-bar" style="width: 54%"></div></div>
+          <p class="text-sm text-gray-300">Analisis dan solusi masalah</p>
+        </div>
+        <div>
+          <p>Design</p>
+          <div class="skill-bar-container"><div class="skill-bar" style="width: 90%"></div></div>
+          <p class="text-sm text-gray-300">Visual menarik & fungsional</p>
+        </div>
+        <div>
+          <p>Time Management</p>
+          <div class="skill-bar-container"><div class="skill-bar" style="width: 70%"></div></div>
+          <p class="text-sm text-gray-300">Efisiensi waktu</p>
+        </div>
+        <div>
+          <p>Programming</p>
+          <div class="skill-bar-container"><div class="skill-bar" style="width: 60%"></div></div>
+          <p class="text-sm text-gray-300">Membangun aplikasi & kode</p>
+        </div>
+        <div>
+          <p>Data Analysis</p>
+          <div class="skill-bar-container"><div class="skill-bar" style="width: 55%"></div></div>
+          <p class="text-sm text-gray-300">Mengolah & interpretasi data</p>
+        </div>
+        <div>
+          <p>Leadership</p>
+          <div class="skill-bar-container"><div class="skill-bar" style="width: 50%"></div></div>
+          <p class="text-sm text-gray-300">Memimpin & mengarahkan tim</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div id="contact-slide" class="slide">
+    <div class="slide-content">
+      <h2 class="text-3xl font-semibold mb-4 text-[#ffd700]">Contact Person</h2>
+      <p class="text-gray-300 mb-6">Interested in working together? Contact me via::</p>
+      <div class="flex flex-col items-center space-y-4">
+        <div class="flex gap-3 items-center">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="w-6 h-6" />
+          <a href="mailto:luthfirealitas@gmail.com" class="contact-link">luthfirealitas@gmail.com</a>
+        </div>
+        <div class="flex gap-3 items-center">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="w-6 h-6" />
+          <a href="https://instagram.com/ahmdfiii_" target="_blank" class="contact-link">@ahmdfiii_</a>
+        </div>
+        <div class="flex gap-3 items-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6" />
+          <a href="https://wa.me/6281351574100" target="_blank" class="contact-link">081351574100</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home-slide" data-slide="0" class="active">Home</a></li>
+      <li><a href="#about-slide" data-slide="1">About</a></li>
+      <li><a href="#portfolio-slide" data-slide="2">Portofolio</a></li>
+      <li><a href="#skill-slide" data-slide="3">Skill</a></li>
+      <li><a href="#contact-slide" data-slide="4">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- JavaScript -->
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const navLinks = document.querySelectorAll("nav ul li a");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active", "prev", "next");
+        if (i < index) slide.classList.add("prev");
+        else if (i > index) slide.classList.add("next");
+      });
+      slides[index].classList.add("active");
+
+      navLinks.forEach(link => link.classList.remove("active"));
+      navLinks[index].classList.add("active");
+      currentSlide = index;
+    }
+
+    function navigateToSlide(index) {
+      if (index >= 0 && index < slides.length && index !== currentSlide) {
+        showSlide(index);
+      }
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const slideIndex = parseInt(this.getAttribute("data-slide"));
+        navigateToSlide(slideIndex);
+      });
+    });
+
+    let isScrolling = false;
+    window.addEventListener("wheel", function (e) {
+      if (!isScrolling) {
+        isScrolling = true;
+        if (e.deltaY > 50) navigateToSlide(currentSlide + 1);
+        else if (e.deltaY < -50) navigateToSlide(currentSlide - 1);
+        setTimeout(() => { isScrolling = false; }, 800);
+      }
+    });
+
+    showSlide(0);
+  </script>
+
+</body>
+</html>
